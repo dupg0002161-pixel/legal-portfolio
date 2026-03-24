@@ -1,0 +1,1289 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Published Work — U. Mehta | Admin</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Mono:wght@300;400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ============================================================
+       DESIGN SYSTEM
+    ============================================================ */
+    :root {
+      --bg:           #F7F5F0;
+      --bg-2:         #EFECE5;
+      --bg-3:         #E8E4DA;
+      --ink:          #1A1814;
+      --ink-2:        #4A4640;
+      --ink-3:        #8A8680;
+      --accent:       #8B6914;
+      --accent-light: #C4961E;
+      --rule:         #D4CFC4;
+      --danger:       #8B1414;
+      --serif:  'EB Garamond', Georgia, serif;
+      --mono:   'DM Mono', 'Courier New', monospace;
+      --sans:   'Instrument Sans', system-ui, sans-serif;
+      --ease:   0.25s ease;
+    }
+    [data-theme="dark"] {
+      --bg:           #0D0C0A;
+      --bg-2:         #141310;
+      --bg-3:         #1C1A17;
+      --ink:          #EDE9E0;
+      --ink-2:        #A8A49C;
+      --ink-3:        #66625C;
+      --accent:       #C4961E;
+      --accent-light: #E8B830;
+      --rule:         #2A2822;
+      --danger:       #C44040;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 16px; scroll-behavior: smooth; }
+    body {
+      background: var(--bg); color: var(--ink);
+      font-family: var(--serif); line-height: 1.7;
+      transition: background var(--ease), color var(--ease);
+    }
+    a { color: inherit; text-decoration: none; }
+    button { font-family: inherit; cursor: pointer; }
+    input, textarea, select {
+      font-family: var(--mono); background: var(--bg-2);
+      color: var(--ink); border: 1px solid var(--rule);
+      transition: border-color var(--ease);
+    }
+    input:focus, textarea:focus, select:focus {
+      outline: none; border-color: var(--accent);
+    }
+
+    /* ============================================================
+       LAYOUT SHELL
+    ============================================================ */
+    .shell {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      min-height: 100vh;
+    }
+
+    /* ============================================================
+       SIDEBAR — ADMIN NAVIGATION
+    ============================================================ */
+    .sidebar {
+      background: var(--bg-2);
+      border-right: 1px solid var(--rule);
+      padding: 2rem 1.5rem;
+      position: sticky; top: 0;
+      height: 100vh; overflow-y: auto;
+      display: flex; flex-direction: column;
+      gap: 0;
+    }
+
+    .sidebar-mark {
+      font-family: var(--serif); font-size: 1rem;
+      font-style: italic; color: var(--ink);
+      margin-bottom: 0.25rem;
+    }
+    .sidebar-sub {
+      font-family: var(--mono); font-size: 0.56rem;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 2rem;
+    }
+
+    .sidebar-section-label {
+      font-family: var(--mono); font-size: 0.54rem;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--ink-3); margin-bottom: 0.5rem;
+      margin-top: 1.5rem; padding-top: 1.5rem;
+      border-top: 1px solid var(--rule);
+    }
+    .sidebar-section-label:first-of-type { margin-top: 0; border-top: none; padding-top: 0; }
+
+    .sidebar-btn {
+      display: flex; align-items: center; gap: 0.6rem;
+      font-family: var(--mono); font-size: 0.6rem;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--ink-2); background: none; border: none;
+      padding: 0.55rem 0.75rem; width: 100%; text-align: left;
+      border-radius: 2px;
+      transition: background var(--ease), color var(--ease);
+      margin-bottom: 2px;
+    }
+    .sidebar-btn:hover { background: var(--bg-3); color: var(--ink); }
+    .sidebar-btn.active { background: var(--ink); color: var(--bg); }
+    .sidebar-btn .dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--accent); flex-shrink: 0;
+    }
+
+    .sidebar-count {
+      margin-left: auto;
+      font-family: var(--mono); font-size: 0.52rem;
+      letter-spacing: 0.08em; color: var(--ink-3);
+      background: var(--bg-3); padding: 0.1rem 0.4rem;
+      border-radius: 2px;
+    }
+    .sidebar-btn.active .sidebar-count { background: rgba(255,255,255,0.15); color: var(--bg); }
+
+    .sidebar-footer {
+      margin-top: auto; padding-top: 1.5rem;
+      border-top: 1px solid var(--rule);
+    }
+    .theme-toggle-small {
+      font-family: var(--mono); font-size: 0.56rem;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--ink-3); background: none;
+      border: 1px solid var(--rule); padding: 0.4rem 0.75rem;
+      width: 100%; transition: all var(--ease);
+    }
+    .theme-toggle-small:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* ============================================================
+       MAIN CONTENT AREA
+    ============================================================ */
+    .main { padding: 3rem; overflow-x: hidden; }
+
+    /* Panel heading */
+    .panel-head {
+      display: flex; align-items: flex-start;
+      justify-content: space-between; gap: 2rem;
+      margin-bottom: 2.5rem; padding-bottom: 2rem;
+      border-bottom: 1px solid var(--rule);
+      flex-wrap: wrap;
+    }
+    .panel-label {
+      font-family: var(--mono); font-size: 0.6rem;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 0.4rem;
+    }
+    .panel-title {
+      font-family: var(--serif); font-size: 2rem;
+      font-weight: 400; color: var(--ink); line-height: 1.15;
+    }
+    .panel-title em { font-style: italic; color: var(--ink-2); }
+    .panel-actions { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+
+    /* Buttons */
+    .btn {
+      font-family: var(--mono); font-size: 0.6rem;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      padding: 0.65rem 1.25rem; border: 1px solid var(--ink);
+      background: var(--ink); color: var(--bg);
+      transition: all var(--ease); cursor: pointer;
+      display: inline-flex; align-items: center; gap: 0.5rem;
+    }
+    .btn:hover { background: var(--accent); border-color: var(--accent); }
+    .btn-outline {
+      background: transparent; color: var(--ink-2);
+      border-color: var(--rule);
+    }
+    .btn-outline:hover { border-color: var(--accent); color: var(--accent); background: transparent; }
+    .btn-danger {
+      background: transparent; color: var(--danger);
+      border-color: var(--danger);
+    }
+    .btn-danger:hover { background: var(--danger); color: var(--bg); }
+    .btn-sm { padding: 0.4rem 0.75rem; font-size: 0.54rem; }
+
+    /* ============================================================
+       ADD / EDIT FORM
+    ============================================================ */
+    .form-panel {
+      background: var(--bg-2); border: 1px solid var(--rule);
+      border-left: 3px solid var(--accent);
+      padding: 2rem; margin-bottom: 2rem;
+      display: none;
+    }
+    .form-panel.open { display: block; animation: slideDown 0.3s ease; }
+
+    @keyframes slideDown {
+      from { opacity: 0; transform: translateY(-8px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .form-title {
+      font-family: var(--mono); font-size: 0.62rem;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 1.5rem;
+    }
+
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .form-grid.single { grid-template-columns: 1fr; }
+
+    .form-field { display: flex; flex-direction: column; gap: 0.4rem; }
+    .form-field.span-2 { grid-column: span 2; }
+
+    .form-label {
+      font-family: var(--mono); font-size: 0.56rem;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--ink-3);
+    }
+    .form-input {
+      padding: 0.6rem 0.85rem; font-size: 0.8rem;
+      line-height: 1.5; width: 100%;
+    }
+    .form-input::placeholder { color: var(--ink-3); }
+    textarea.form-input { resize: vertical; min-height: 80px; }
+
+    select.form-input {
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%238A8680'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 0.75rem center;
+      padding-right: 2rem;
+    }
+
+    .form-hint {
+      font-family: var(--mono); font-size: 0.54rem;
+      letter-spacing: 0.06em; color: var(--ink-3);
+      margin-top: 0.2rem;
+    }
+
+    .form-actions {
+      display: flex; gap: 0.5rem; margin-top: 1.5rem;
+      padding-top: 1.5rem; border-top: 1px solid var(--rule);
+    }
+
+    /* ============================================================
+       CONTENT LIST — items in admin view
+    ============================================================ */
+    .content-list { display: flex; flex-direction: column; gap: 1px; }
+
+    .content-item {
+      background: var(--bg);
+      border: 1px solid var(--rule);
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 1.5rem;
+      padding: 1.25rem 1.5rem;
+      align-items: center;
+      transition: background var(--ease);
+    }
+    .content-item:hover { background: var(--bg-2); }
+
+    .content-item-left { min-width: 0; }
+
+    .content-item-type {
+      font-family: var(--mono); font-size: 0.54rem;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 0.3rem;
+      display: flex; align-items: center; gap: 0.5rem;
+    }
+    .type-badge {
+      display: inline-block;
+      padding: 0.1rem 0.4rem;
+      border: 1px solid currentColor;
+      border-radius: 1px;
+    }
+
+    .content-item-title {
+      font-family: var(--serif); font-size: 1rem;
+      font-weight: 500; color: var(--ink);
+      white-space: nowrap; overflow: hidden;
+      text-overflow: ellipsis; margin-bottom: 0.25rem;
+    }
+    .content-item-excerpt {
+      font-family: var(--serif); font-size: 0.8rem;
+      font-style: italic; color: var(--ink-3);
+      white-space: nowrap; overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .content-item-meta {
+      display: flex; align-items: center; gap: 1rem;
+      margin-top: 0.4rem;
+    }
+    .content-item-date {
+      font-family: var(--mono); font-size: 0.54rem;
+      letter-spacing: 0.08em; color: var(--ink-3);
+    }
+    .content-item-domain {
+      font-family: var(--mono); font-size: 0.54rem;
+      letter-spacing: 0.08em; color: var(--ink-3);
+    }
+
+    .content-item-actions {
+      display: flex; gap: 0.4rem; flex-shrink: 0;
+    }
+
+    /* Empty state */
+    .empty-state {
+      text-align: center; padding: 4rem 2rem;
+      border: 1px dashed var(--rule);
+    }
+    .empty-icon {
+      font-size: 2rem; margin-bottom: 1rem;
+      display: block; color: var(--ink-3);
+    }
+    .empty-title {
+      font-family: var(--serif); font-size: 1.1rem;
+      color: var(--ink-2); margin-bottom: 0.5rem;
+    }
+    .empty-desc {
+      font-family: var(--mono); font-size: 0.58rem;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--ink-3);
+    }
+
+    /* ============================================================
+       PREVIEW — PUBLIC SECTION OUTPUT
+       This is exactly how the Published Work section renders
+       on the main site. Toggle between Admin and Preview views.
+    ============================================================ */
+    #view-preview { display: none; }
+    #view-preview.active { display: block; }
+    #view-admin { display: block; }
+    #view-admin.hidden { display: none; }
+
+    /* Preview section styling — mirrors index.html */
+    .preview-shell {
+      background: var(--bg); min-height: 60vh;
+      padding: 0; font-family: var(--serif);
+    }
+
+    .preview-header {
+      padding: 2.5rem 0 1.5rem;
+      border-bottom: 1px solid var(--rule);
+      margin-bottom: 0;
+    }
+    .preview-section-label {
+      font-family: var(--mono); font-size: 0.6rem;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 0.5rem;
+    }
+    .preview-section-title {
+      font-family: var(--serif);
+      font-size: clamp(1.4rem, 2.5vw, 2rem);
+      font-weight: 400; color: var(--ink); line-height: 1.2;
+    }
+    .preview-section-title em { font-style: italic; color: var(--ink-2); }
+    .preview-desc {
+      font-family: var(--serif); font-size: 0.9rem;
+      color: var(--ink-2); margin-top: 0.5rem; line-height: 1.7;
+    }
+
+    /* Tab strip within preview */
+    .preview-tabs {
+      display: flex; border-bottom: 1px solid var(--rule);
+      margin-top: 2rem;
+    }
+    .preview-tab {
+      font-family: var(--mono); font-size: 0.58rem;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--ink-3); padding: 0.75rem 1.25rem;
+      border-bottom: 2px solid transparent;
+      cursor: pointer; transition: all var(--ease);
+      background: none; border-left: none; border-right: none; border-top: none;
+    }
+    .preview-tab:hover { color: var(--accent); }
+    .preview-tab.active-tab { color: var(--accent); border-bottom-color: var(--accent); }
+
+    /* Newsletter rows */
+    .nl-row {
+      display: grid; grid-template-columns: 3.5rem 1fr auto;
+      align-items: baseline; gap: 1.5rem;
+      padding: 1rem 0; border-top: 1px solid var(--rule);
+      transition: background var(--ease); cursor: pointer;
+      text-decoration: none; color: inherit;
+    }
+    .nl-row:hover { background: var(--bg-2); margin: 0 -0.5rem; padding-left: 0.5rem; padding-right: 0.5rem; }
+    .nl-num { font-family: var(--mono); font-size: 0.56rem; letter-spacing: 0.1em; color: var(--ink-3); }
+    .nl-headline { font-family: var(--serif); font-size: 0.95rem; font-weight: 500; color: var(--ink); margin-bottom: 0.2rem; }
+    .nl-thesis { font-family: var(--serif); font-size: 0.8rem; font-style: italic; color: var(--ink-3); }
+    .nl-date { font-family: var(--mono); font-size: 0.54rem; letter-spacing: 0.08em; color: var(--ink-3); white-space: nowrap; }
+
+    /* Card grid for articles + posts */
+    .cards-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1px; background: var(--rule); border: 1px solid var(--rule);
+      margin-top: 0.5rem;
+    }
+    .pub-card {
+      background: var(--bg); padding: 1.75rem;
+      display: flex; flex-direction: column;
+      transition: background var(--ease);
+      text-decoration: none; color: inherit;
+    }
+    .pub-card:hover { background: var(--bg-2); }
+    .pub-card-tag {
+      font-family: var(--mono); font-size: 0.54rem;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 0.75rem;
+    }
+    .pub-card-title {
+      font-family: var(--serif); font-size: 1rem;
+      font-weight: 500; line-height: 1.4;
+      color: var(--ink); margin-bottom: 0.65rem; flex: 1;
+    }
+    .pub-card-excerpt {
+      font-family: var(--serif); font-size: 0.8rem;
+      font-style: italic; color: var(--ink-2);
+      line-height: 1.6; margin-bottom: 1rem;
+    }
+    .pub-card-footer {
+      display: flex; justify-content: space-between;
+      align-items: center; border-top: 1px solid var(--rule);
+      padding-top: 0.65rem; margin-top: auto;
+    }
+    .pub-card-date {
+      font-family: var(--mono); font-size: 0.52rem;
+      letter-spacing: 0.08em; color: var(--ink-3);
+    }
+    .pub-card-cta {
+      font-family: var(--mono); font-size: 0.52rem;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    /* Stats bar above preview */
+    .stats-bar {
+      display: flex; gap: 2rem; margin-bottom: 1.5rem;
+      padding: 1rem 1.25rem; background: var(--bg-2);
+      border: 1px solid var(--rule);
+    }
+    .stat-item { }
+    .stat-n {
+      font-family: var(--serif); font-size: 1.4rem;
+      color: var(--ink); line-height: 1;
+    }
+    .stat-l {
+      font-family: var(--mono); font-size: 0.52rem;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--ink-3);
+    }
+
+    /* Toast notification */
+    #toast {
+      position: fixed; bottom: 2rem; right: 2rem;
+      background: var(--ink); color: var(--bg);
+      font-family: var(--mono); font-size: 0.6rem;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      padding: 0.75rem 1.25rem; z-index: 9999;
+      opacity: 0; transform: translateY(8px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      pointer-events: none;
+    }
+    #toast.show { opacity: 1; transform: translateY(0); }
+
+    /* Export code block */
+    .code-block {
+      background: var(--bg-3); border: 1px solid var(--rule);
+      padding: 1.5rem; font-family: var(--mono);
+      font-size: 0.7rem; line-height: 1.6;
+      color: var(--ink-2); overflow-x: auto;
+      white-space: pre; margin-top: 1rem;
+      max-height: 320px; overflow-y: auto;
+    }
+
+    /* ============================================================
+       RESPONSIVE
+    ============================================================ */
+    @media (max-width: 900px) {
+      .shell { grid-template-columns: 1fr; }
+      .sidebar {
+        position: static; height: auto;
+        border-right: none; border-bottom: 1px solid var(--rule);
+        flex-direction: row; flex-wrap: wrap; gap: 0.5rem;
+        padding: 1rem;
+      }
+      .sidebar-footer { display: none; }
+      .main { padding: 1.5rem; }
+      .form-grid { grid-template-columns: 1fr; }
+      .form-field.span-2 { grid-column: span 1; }
+    }
+  </style>
+</head>
+
+<body>
+<div class="shell">
+
+  <!-- ============================================================
+       SIDEBAR
+  ============================================================ -->
+  <aside class="sidebar">
+    <div class="sidebar-mark">U. Mehta</div>
+    <div class="sidebar-sub">Published Work · Admin</div>
+
+    <div class="sidebar-section-label">Content</div>
+    <button class="sidebar-btn active" onclick="switchTab('newsletter')" id="tab-newsletter">
+      <span class="dot"></span> Newsletter
+      <span class="sidebar-count" id="count-newsletter">0</span>
+    </button>
+    <button class="sidebar-btn" onclick="switchTab('article')" id="tab-article">
+      <span class="dot"></span> Articles
+      <span class="sidebar-count" id="count-article">0</span>
+    </button>
+    <button class="sidebar-btn" onclick="switchTab('post')" id="tab-post">
+      <span class="dot"></span> Posts
+      <span class="sidebar-count" id="count-post">0</span>
+    </button>
+
+    <div class="sidebar-section-label">Views</div>
+    <button class="sidebar-btn" onclick="showAdminView()">
+      ⊞ Admin View
+    </button>
+    <button class="sidebar-btn" onclick="showPreviewView()">
+      ◻ Preview (Live)
+    </button>
+
+    <div class="sidebar-section-label">Export</div>
+    <button class="sidebar-btn" onclick="showExport()">
+      ↗ Export for index.html
+    </button>
+
+    <div class="sidebar-footer">
+      <button class="theme-toggle-small" onclick="toggleTheme()">◐ Toggle Theme</button>
+    </div>
+  </aside>
+
+  <!-- ============================================================
+       MAIN
+  ============================================================ -->
+  <main class="main">
+
+    <!-- ADMIN VIEW -->
+    <div id="view-admin">
+
+      <!-- Panel head -->
+      <div class="panel-head">
+        <div>
+          <div class="panel-label" id="panel-label">01 — Newsletter Issues</div>
+          <h1 class="panel-title" id="panel-title">
+            Contracts &amp; <em>Companies</em>
+          </h1>
+        </div>
+        <div class="panel-actions">
+          <button class="btn btn-outline" onclick="toggleForm()">+ Add Entry</button>
+        </div>
+      </div>
+
+      <!-- ADD / EDIT FORM -->
+      <div class="form-panel" id="form-panel">
+        <div class="form-title" id="form-title">New Newsletter Issue</div>
+
+        <!-- NEWSLETTER FORM -->
+        <div id="form-newsletter">
+          <div class="form-grid">
+            <div class="form-field">
+              <label class="form-label">Issue Number</label>
+              <input class="form-input" id="nl-num" type="text" placeholder="e.g. No. 04" />
+            </div>
+            <div class="form-field">
+              <label class="form-label">Date</label>
+              <input class="form-input" id="nl-date" type="text" placeholder="e.g. March 2026" />
+            </div>
+            <div class="form-field span-2">
+              <label class="form-label">Headline</label>
+              <input class="form-input" id="nl-headline" type="text"
+                     placeholder="e.g. The DPDP Act & What Startups Are Getting Wrong" />
+            </div>
+            <div class="form-field span-2">
+              <label class="form-label">One-Line Thesis</label>
+              <input class="form-input" id="nl-thesis" type="text"
+                     placeholder="e.g. Why compliance gaps create disproportionate liability." />
+            </div>
+            <div class="form-field span-2">
+              <label class="form-label">LinkedIn URL</label>
+              <input class="form-input" id="nl-url" type="url"
+                     placeholder="https://www.linkedin.com/pulse/..." />
+              <span class="form-hint">Paste the direct link to this newsletter issue on LinkedIn</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ARTICLE FORM -->
+        <div id="form-article" style="display:none;">
+          <div class="form-grid">
+            <div class="form-field">
+              <label class="form-label">Domain / Tag</label>
+              <select class="form-input" id="art-tag">
+                <option value="Contracts">Contracts</option>
+                <option value="Commercial">Commercial</option>
+                <option value="Civil">Civil</option>
+                <option value="Corporate & AI Governance">Corporate & AI Governance</option>
+                <option value="Criminal · Pro Bono">Criminal · Pro Bono</option>
+                <option value="Law & Social Science">Law & Social Science</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label class="form-label">Date Published</label>
+              <input class="form-input" id="art-date" type="text" placeholder="e.g. Jan 2026" />
+            </div>
+            <div class="form-field span-2">
+              <label class="form-label">Article Title</label>
+              <input class="form-input" id="art-title" type="text"
+                     placeholder="Full article title as it appears on LinkedIn" />
+            </div>
+            <div class="form-field span-2">
+              <label class="form-label">Abstract / Excerpt</label>
+              <textarea class="form-input" id="art-excerpt"
+                        placeholder="2–3 sentence summary. What argument does this article make?"></textarea>
+            </div>
+            <div class="form-field span-2">
+              <label class="form-label">LinkedIn Article URL</label>
+              <input class="form-input" id="art-url" type="url"
+                     placeholder="https://www.linkedin.com/pulse/..." />
+              <span class="form-hint">Paste the direct link to the article on LinkedIn</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- POST FORM -->
+        <div id="form-post" style="display:none;">
+          <div class="form-grid">
+            <div class="form-field">
+              <label class="form-label">Domain / Tag</label>
+              <select class="form-input" id="post-tag">
+                <option value="Contracts">Contracts</option>
+                <option value="Commercial">Commercial</option>
+                <option value="Civil">Civil</option>
+                <option value="Corporate & AI Governance">Corporate & AI Governance</option>
+                <option value="Criminal · Pro Bono">Criminal · Pro Bono</option>
+                <option value="Law & Social Science">Law & Social Science</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label class="form-label">Date Posted</label>
+              <input class="form-input" id="post-date" type="text" placeholder="e.g. Feb 2026" />
+            </div>
+            <div class="form-field span-2">
+              <label class="form-label">Post Title / First Line</label>
+              <input class="form-input" id="post-title" type="text"
+                     placeholder="Opening line or title of the post" />
+            </div>
+            <div class="form-field span-2">
+              <label class="form-label">Post Excerpt</label>
+              <textarea class="form-input" id="post-excerpt"
+                        placeholder="2–3 sentence summary of what the post says"></textarea>
+            </div>
+            <div class="form-field span-2">
+              <label class="form-label">LinkedIn Post URL</label>
+              <input class="form-input" id="post-url" type="url"
+                     placeholder="https://www.linkedin.com/posts/..." />
+              <span class="form-hint">On LinkedIn: click the three dots on your post → Copy link</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <button class="btn" id="form-save-btn" onclick="saveEntry()">Save Entry</button>
+          <button class="btn btn-outline" onclick="cancelEdit()">Cancel</button>
+        </div>
+      </div>
+
+      <!-- CONTENT LIST -->
+      <div id="content-list-wrap">
+        <div class="content-list" id="content-list"></div>
+      </div>
+
+    </div><!-- /view-admin -->
+
+    <!-- PREVIEW VIEW -->
+    <div id="view-preview">
+      <div class="panel-head">
+        <div>
+          <div class="panel-label">Live Preview</div>
+          <h1 class="panel-title">Published Work &amp; <em>Documented Thinking</em></h1>
+        </div>
+        <div class="panel-actions">
+          <button class="btn btn-outline" onclick="showAdminView()">← Back to Admin</button>
+        </div>
+      </div>
+
+      <div class="preview-shell">
+        <div class="stats-bar" id="preview-stats"></div>
+
+        <div class="preview-tabs">
+          <button class="preview-tab active-tab" onclick="switchPreviewTab('newsletter', this)">
+            Newsletter
+          </button>
+          <button class="preview-tab" onclick="switchPreviewTab('article', this)">
+            Articles
+          </button>
+          <button class="preview-tab" onclick="switchPreviewTab('post', this)">
+            Posts
+          </button>
+        </div>
+
+        <div id="preview-content" style="padding-top: 0.5rem;"></div>
+      </div>
+    </div><!-- /view-preview -->
+
+    <!-- EXPORT VIEW -->
+    <div id="view-export" style="display:none;">
+      <div class="panel-head">
+        <div>
+          <div class="panel-label">Export</div>
+          <h1 class="panel-title">Copy into <em>index.html</em></h1>
+        </div>
+        <div class="panel-actions">
+          <button class="btn" onclick="copyExport()">Copy All</button>
+          <button class="btn btn-outline" onclick="hideExport()">← Back</button>
+        </div>
+      </div>
+      <p style="font-family:var(--mono);font-size:0.62rem;letter-spacing:0.1em;color:var(--ink-3);margin-bottom:1rem;">
+        Paste this block inside the <code style="color:var(--accent);">#published</code> section of your index.html,
+        replacing the existing newsletter/article/post content.
+      </p>
+      <pre class="code-block" id="export-code"></pre>
+    </div>
+
+  </main>
+</div>
+
+<!-- TOAST -->
+<div id="toast"></div>
+
+<!-- ============================================================
+     JAVASCRIPT — FULL CONTENT MANAGEMENT ENGINE
+============================================================ -->
+<script>
+// ============================================================
+// DATA STORE
+// All content lives in localStorage under 'umehta_published'.
+// Structure: { newsletter: [...], article: [...], post: [...] }
+// Each entry: { id, type, ...fields }
+// ============================================================
+
+const STORE_KEY = 'umehta_published';
+
+function loadStore() {
+  try {
+    return JSON.parse(localStorage.getItem(STORE_KEY)) || { newsletter: [], article: [], post: [] };
+  } catch { return { newsletter: [], article: [], post: [] }; }
+}
+
+function saveStore(data) {
+  localStorage.setItem(STORE_KEY, JSON.stringify(data));
+}
+
+function genId() {
+  return Date.now().toString(36) + Math.random().toString(36).slice(2, 6);
+}
+
+// ============================================================
+// STATE
+// ============================================================
+let currentTab   = 'newsletter';  // which type is active in admin
+let editingId    = null;           // null = new entry, else ID of entry being edited
+let store        = loadStore();
+
+// ============================================================
+// SIDEBAR TAB SWITCHING
+// ============================================================
+function switchTab(type) {
+  currentTab = type;
+  editingId  = null;
+
+  // Update sidebar active state
+  ['newsletter', 'article', 'post'].forEach(t => {
+    document.getElementById(`tab-${t}`).classList.toggle('active', t === type);
+  });
+
+  // Update panel heading
+  const titles = {
+    newsletter: { label: '01 — Newsletter Issues', title: 'Contracts &amp; <em>Companies</em>' },
+    article:    { label: '02 — LinkedIn Articles', title: 'Published <em>Articles</em>' },
+    post:       { label: '03 — LinkedIn Posts',    title: 'Selected <em>Posts</em>' },
+  };
+  document.getElementById('panel-label').textContent = titles[type].label;
+  document.getElementById('panel-title').innerHTML   = titles[type].title;
+
+  // Close form
+  closeForm();
+
+  // Render list
+  renderList();
+}
+
+// ============================================================
+// FORM OPEN / CLOSE
+// ============================================================
+function toggleForm() {
+  const panel = document.getElementById('form-panel');
+  if (panel.classList.contains('open')) { closeForm(); }
+  else { openForm(); }
+}
+
+function openForm(id = null) {
+  editingId = id;
+  const panel = document.getElementById('form-panel');
+
+  // Show correct sub-form, hide others
+  ['newsletter', 'article', 'post'].forEach(t => {
+    document.getElementById(`form-${t}`).style.display = t === currentTab ? 'block' : 'none';
+  });
+
+  // Update form title
+  const typeLabel = { newsletter: 'Newsletter Issue', article: 'LinkedIn Article', post: 'LinkedIn Post' };
+  document.getElementById('form-title').textContent =
+    id ? `Edit ${typeLabel[currentTab]}` : `New ${typeLabel[currentTab]}`;
+
+  // If editing, populate fields
+  if (id) {
+    const entry = store[currentTab].find(e => e.id === id);
+    if (entry) populateForm(entry);
+  } else {
+    clearForm();
+  }
+
+  panel.classList.add('open');
+  panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+function closeForm() {
+  document.getElementById('form-panel').classList.remove('open');
+  editingId = null;
+  clearForm();
+}
+
+function cancelEdit() { closeForm(); }
+
+function clearForm() {
+  // Newsletter
+  ['nl-num', 'nl-date', 'nl-headline', 'nl-thesis', 'nl-url'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.value = '';
+  });
+  // Article
+  ['art-date', 'art-title', 'art-excerpt', 'art-url'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.value = '';
+  });
+  // Post
+  ['post-date', 'post-title', 'post-excerpt', 'post-url'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.value = '';
+  });
+}
+
+function populateForm(entry) {
+  if (currentTab === 'newsletter') {
+    document.getElementById('nl-num').value      = entry.num      || '';
+    document.getElementById('nl-date').value     = entry.date     || '';
+    document.getElementById('nl-headline').value = entry.headline || '';
+    document.getElementById('nl-thesis').value   = entry.thesis   || '';
+    document.getElementById('nl-url').value      = entry.url      || '';
+  } else if (currentTab === 'article') {
+    document.getElementById('art-tag').value     = entry.tag      || 'Contracts';
+    document.getElementById('art-date').value    = entry.date     || '';
+    document.getElementById('art-title').value   = entry.title    || '';
+    document.getElementById('art-excerpt').value = entry.excerpt  || '';
+    document.getElementById('art-url').value     = entry.url      || '';
+  } else if (currentTab === 'post') {
+    document.getElementById('post-tag').value     = entry.tag     || 'Contracts';
+    document.getElementById('post-date').value    = entry.date    || '';
+    document.getElementById('post-title').value   = entry.title   || '';
+    document.getElementById('post-excerpt').value = entry.excerpt || '';
+    document.getElementById('post-url').value     = entry.url     || '';
+  }
+}
+
+// ============================================================
+// SAVE ENTRY
+// ============================================================
+function saveEntry() {
+  let entry = {};
+
+  if (currentTab === 'newsletter') {
+    const num      = document.getElementById('nl-num').value.trim();
+    const headline = document.getElementById('nl-headline').value.trim();
+    if (!headline) { showToast('Headline is required'); return; }
+    entry = {
+      id:       editingId || genId(),
+      type:     'newsletter',
+      num:      num,
+      date:     document.getElementById('nl-date').value.trim(),
+      headline: headline,
+      thesis:   document.getElementById('nl-thesis').value.trim(),
+      url:      document.getElementById('nl-url').value.trim() ||
+                'https://www.linkedin.com/newsletters/contracts-and-companies-7431657302195126272/',
+    };
+  } else if (currentTab === 'article') {
+    const title = document.getElementById('art-title').value.trim();
+    if (!title) { showToast('Title is required'); return; }
+    entry = {
+      id:      editingId || genId(),
+      type:    'article',
+      tag:     document.getElementById('art-tag').value,
+      date:    document.getElementById('art-date').value.trim(),
+      title:   title,
+      excerpt: document.getElementById('art-excerpt').value.trim(),
+      url:     document.getElementById('art-url').value.trim() ||
+               'https://www.linkedin.com/in/udbhav-mehta-548043211/',
+    };
+  } else if (currentTab === 'post') {
+    const title = document.getElementById('post-title').value.trim();
+    if (!title) { showToast('Title / first line is required'); return; }
+    entry = {
+      id:      editingId || genId(),
+      type:    'post',
+      tag:     document.getElementById('post-tag').value,
+      date:    document.getElementById('post-date').value.trim(),
+      title:   title,
+      excerpt: document.getElementById('post-excerpt').value.trim(),
+      url:     document.getElementById('post-url').value.trim() ||
+               'https://www.linkedin.com/in/udbhav-mehta-548043211/',
+    };
+  }
+
+  // Insert or update
+  if (editingId) {
+    const idx = store[currentTab].findIndex(e => e.id === editingId);
+    if (idx > -1) store[currentTab][idx] = entry;
+  } else {
+    store[currentTab].unshift(entry); // newest first
+  }
+
+  saveStore(store);
+  closeForm();
+  renderList();
+  updateCounts();
+  showToast(editingId ? 'Entry updated' : 'Entry saved');
+}
+
+// ============================================================
+// DELETE ENTRY
+// ============================================================
+function deleteEntry(type, id) {
+  if (!confirm('Delete this entry? This cannot be undone.')) return;
+  store[type] = store[type].filter(e => e.id !== id);
+  saveStore(store);
+  renderList();
+  updateCounts();
+  showToast('Entry deleted');
+}
+
+// ============================================================
+// RENDER ADMIN LIST
+// ============================================================
+function renderList() {
+  const container = document.getElementById('content-list');
+  const items     = store[currentTab];
+
+  if (!items.length) {
+    container.innerHTML = `
+      <div class="empty-state">
+        <span class="empty-icon">§</span>
+        <div class="empty-title">No entries yet</div>
+        <div class="empty-desc">Click "Add Entry" to add your first ${currentTab}</div>
+      </div>`;
+    return;
+  }
+
+  container.innerHTML = items.map(entry => {
+    const type = entry.type;
+
+    // Build display strings per type
+    let typeLabel, mainTitle, subText, dateTxt;
+    if (type === 'newsletter') {
+      typeLabel  = `<span class="type-badge">Newsletter</span> ${entry.num || ''}`;
+      mainTitle  = entry.headline || '—';
+      subText    = entry.thesis   || '';
+      dateTxt    = entry.date     || '';
+    } else if (type === 'article') {
+      typeLabel  = `<span class="type-badge">Article</span> ${entry.tag || ''}`;
+      mainTitle  = entry.title   || '—';
+      subText    = entry.excerpt || '';
+      dateTxt    = entry.date    || '';
+    } else {
+      typeLabel  = `<span class="type-badge">Post</span> ${entry.tag || ''}`;
+      mainTitle  = entry.title   || '—';
+      subText    = entry.excerpt || '';
+      dateTxt    = entry.date    || '';
+    }
+
+    return `
+      <div class="content-item">
+        <div class="content-item-left">
+          <div class="content-item-type">${typeLabel}</div>
+          <div class="content-item-title">${escHtml(mainTitle)}</div>
+          <div class="content-item-excerpt">${escHtml(subText)}</div>
+          <div class="content-item-meta">
+            <span class="content-item-date">${escHtml(dateTxt)}</span>
+            ${entry.url ? `<a href="${escHtml(entry.url)}" target="_blank"
+              style="font-family:var(--mono);font-size:0.52rem;letter-spacing:0.08em;
+                     color:var(--accent);text-decoration:none;">
+              ↗ LinkedIn
+            </a>` : ''}
+          </div>
+        </div>
+        <div class="content-item-actions">
+          <button class="btn btn-outline btn-sm"
+            onclick="openForm('${entry.id}')">Edit</button>
+          <button class="btn btn-danger btn-sm"
+            onclick="deleteEntry('${type}', '${entry.id}')">Delete</button>
+        </div>
+      </div>`;
+  }).join('');
+}
+
+// ============================================================
+// UPDATE SIDEBAR COUNTS
+// ============================================================
+function updateCounts() {
+  ['newsletter', 'article', 'post'].forEach(t => {
+    document.getElementById(`count-${t}`).textContent = store[t].length;
+  });
+}
+
+// ============================================================
+// PREVIEW VIEW
+// Renders the exact Published Work section as it appears on site
+// ============================================================
+function showPreviewView() {
+  document.getElementById('view-admin').classList.add('hidden');
+  document.getElementById('view-export').style.display = 'none';
+  document.getElementById('view-preview').classList.add('active');
+
+  // Stats bar
+  const total = store.newsletter.length + store.article.length + store.post.length;
+  document.getElementById('preview-stats').innerHTML = `
+    <div class="stat-item">
+      <div class="stat-n">${store.newsletter.length}</div>
+      <div class="stat-l">Newsletter Issues</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-n">${store.article.length}</div>
+      <div class="stat-l">Articles</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-n">${store.post.length}</div>
+      <div class="stat-l">Posts</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-n">${total}</div>
+      <div class="stat-l">Total Published</div>
+    </div>`;
+
+  renderPreview('newsletter');
+}
+
+function showAdminView() {
+  document.getElementById('view-admin').classList.remove('hidden');
+  document.getElementById('view-export').style.display = 'none';
+  document.getElementById('view-preview').classList.remove('active');
+}
+
+function switchPreviewTab(type, btn) {
+  document.querySelectorAll('.preview-tab').forEach(b => b.classList.remove('active-tab'));
+  btn.classList.add('active-tab');
+  renderPreview(type);
+}
+
+function renderPreview(type) {
+  const container = document.getElementById('preview-content');
+  const items     = store[type];
+
+  if (!items.length) {
+    container.innerHTML = `
+      <div class="empty-state" style="margin-top:1rem;">
+        <span class="empty-icon">§</span>
+        <div class="empty-title">No ${type} entries yet</div>
+        <div class="empty-desc">Add entries in the admin view</div>
+      </div>`;
+    return;
+  }
+
+  if (type === 'newsletter') {
+    // Issue index rows
+    const rows = items.map((entry, i) => `
+      <a href="${escHtml(entry.url)}" target="_blank" class="nl-row">
+        <span class="nl-num">${escHtml(entry.num || `No. ${String(i+1).padStart(2,'0')}`)}</span>
+        <div>
+          <div class="nl-headline">${escHtml(entry.headline)}</div>
+          <div class="nl-thesis">${escHtml(entry.thesis)}</div>
+        </div>
+        <span class="nl-date">${escHtml(entry.date)}</span>
+      </a>`).join('');
+
+    container.innerHTML = `
+      <div style="padding-top:0.5rem;">${rows}</div>
+      <div style="padding:1.25rem 0;">
+        <a href="https://www.linkedin.com/newsletters/contracts-and-companies-7431657302195126272/"
+           target="_blank"
+           style="font-family:var(--mono);font-size:0.6rem;letter-spacing:0.12em;
+                  text-transform:uppercase;color:var(--accent);">
+          Subscribe to Contracts &amp; Companies on LinkedIn →
+        </a>
+      </div>`;
+
+  } else {
+    // Card grid for articles + posts
+    const cards = items.map(entry => `
+      <a href="${escHtml(entry.url)}" target="_blank" class="pub-card">
+        <div class="pub-card-tag">${escHtml(entry.tag || '')}</div>
+        <div class="pub-card-title">${escHtml(entry.title)}</div>
+        <div class="pub-card-excerpt">${escHtml(entry.excerpt || '')}</div>
+        <div class="pub-card-footer">
+          <span class="pub-card-date">${escHtml(entry.date || '')}</span>
+          <span class="pub-card-cta">Read on LinkedIn →</span>
+        </div>
+      </a>`).join('');
+
+    container.innerHTML = `
+      <div class="cards-grid" style="margin-top:1rem;">${cards}</div>
+      <div style="padding:1.25rem 0;text-align:center;">
+        <a href="https://www.linkedin.com/in/udbhav-mehta-548043211/"
+           target="_blank"
+           style="font-family:var(--mono);font-size:0.6rem;letter-spacing:0.12em;
+                  text-transform:uppercase;color:var(--accent);">
+          View All on LinkedIn →
+        </a>
+      </div>`;
+  }
+}
+
+// ============================================================
+// EXPORT — generate the HTML block for index.html
+// ============================================================
+function showExport() {
+  document.getElementById('view-admin').classList.add('hidden');
+  document.getElementById('view-preview').classList.remove('active');
+  const exportDiv = document.getElementById('view-export');
+  exportDiv.style.display = 'block';
+  document.getElementById('export-code').textContent = generateExportHTML();
+}
+
+function hideExport() {
+  document.getElementById('view-export').style.display = 'none';
+  document.getElementById('view-admin').classList.remove('hidden');
+}
+
+function copyExport() {
+  const code = document.getElementById('export-code').textContent;
+  navigator.clipboard.writeText(code).then(() => showToast('Copied to clipboard'));
+}
+
+function generateExportHTML() {
+  const nl  = store.newsletter;
+  const art = store.article;
+  const post = store.post;
+
+  const nlRows = nl.length ? nl.map((e, i) => `
+          <a href="${e.url}" target="_blank" class="nl-row">
+            <span class="nl-num">${escHtml(e.num || `No. ${String(i+1).padStart(2,'0')}`)}</span>
+            <div>
+              <div class="nl-headline">${escHtml(e.headline)}</div>
+              <div class="nl-thesis">${escHtml(e.thesis)}</div>
+            </div>
+            <span class="nl-date">${escHtml(e.date)}</span>
+          </a>`).join('') :
+    `\n          <!-- No newsletter issues added yet -->`;
+
+  const artCards = art.length ? art.map(e => `
+          <a href="${e.url}" target="_blank" class="pub-card">
+            <div class="pub-card-tag">${escHtml(e.tag)}</div>
+            <div class="pub-card-title">${escHtml(e.title)}</div>
+            <div class="pub-card-excerpt">${escHtml(e.excerpt)}</div>
+            <div class="pub-card-footer">
+              <span class="pub-card-date">${escHtml(e.date)}</span>
+              <span class="pub-card-cta">Read on LinkedIn →</span>
+            </div>
+          </a>`).join('') :
+    `\n          <!-- No articles added yet -->`;
+
+  const postCards = post.length ? post.map(e => `
+          <a href="${e.url}" target="_blank" class="pub-card">
+            <div class="pub-card-tag">${escHtml(e.tag)}</div>
+            <div class="pub-card-title">${escHtml(e.title)}</div>
+            <div class="pub-card-excerpt">${escHtml(e.excerpt)}</div>
+            <div class="pub-card-footer">
+              <span class="pub-card-date">${escHtml(e.date)}</span>
+              <span class="pub-card-cta">Read on LinkedIn →</span>
+            </div>
+          </a>`).join('') :
+    `\n          <!-- No posts added yet -->`;
+
+  return `<!-- ============================================================
+     PUBLISHED WORK — Generated from Admin Panel
+     Last updated: ${new Date().toLocaleDateString('en-GB', {day:'2-digit',month:'long',year:'numeric'})}
+     Entries: ${nl.length} newsletter · ${art.length} articles · ${post.length} posts
+============================================================ -->
+
+<!-- 01A: NEWSLETTER — Contracts & Companies -->
+<div class="linkedin-section">
+  <div class="linkedin-section-title">Newsletter — Contracts &amp; Companies</div>
+  <div class="newsletter-header">
+    <div>
+      <div class="newsletter-title">Contracts &amp; Companies</div>
+      <div class="newsletter-sub">LinkedIn Newsletter · Corporate Law &amp; AI Governance · Delhi University</div>
+    </div>
+    <a href="https://www.linkedin.com/newsletters/contracts-and-companies-7431657302195126272/"
+       target="_blank" class="btn-secondary no-print">Subscribe on LinkedIn →</a>
+  </div>
+  ${nlRows}
+</div>
+
+<!-- 01B: ARTICLES -->
+<div class="linkedin-section">
+  <div class="linkedin-section-title">Articles — LinkedIn</div>
+  <div class="cards-grid">
+    ${artCards}
+  </div>
+  <div style="text-align:center;padding:1.25rem 0;">
+    <a href="https://www.linkedin.com/in/udbhav-mehta-548043211/"
+       target="_blank" class="btn-secondary">View All Articles on LinkedIn →</a>
+  </div>
+</div>
+
+<!-- 01C: POSTS -->
+<div class="linkedin-section" style="border-bottom:none;">
+  <div class="linkedin-section-title">Posts — LinkedIn</div>
+  <div class="cards-grid">
+    ${postCards}
+  </div>
+  <div style="text-align:center;padding:1.25rem 0;">
+    <a href="https://www.linkedin.com/in/udbhav-mehta-548043211/"
+       target="_blank" class="btn-secondary">View All Posts on LinkedIn →</a>
+  </div>
+</div>`;
+}
+
+// ============================================================
+// UTILITIES
+// ============================================================
+function escHtml(str) {
+  if (!str) return '';
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
+function showToast(msg) {
+  const toast = document.getElementById('toast');
+  toast.textContent = msg;
+  toast.classList.add('show');
+  setTimeout(() => toast.classList.remove('show'), 2500);
+}
+
+function toggleTheme() {
+  const html = document.documentElement;
+  const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+  html.setAttribute('data-theme', next);
+  localStorage.setItem('theme', next);
+}
+
+// Apply saved theme on load
+const savedTheme = localStorage.getItem('theme');
+if (savedTheme) document.documentElement.setAttribute('data-theme', savedTheme);
+
+// ============================================================
+// EXPORT MODAL SHOWN FROM SIDEBAR
+// ============================================================
+function showExportView() { showExport(); }
+
+// ============================================================
+// INIT
+// ============================================================
+store = loadStore();
+updateCounts();
+renderList();
+</script>
+
+</body>
+</html>

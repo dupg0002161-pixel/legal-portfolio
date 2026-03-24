@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resource Center | BNS 2023 Encyclopedia</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <style>
+        :root {
+            --sidebar-width: 280px;
+        }
+        body { font-size: 1rem; }
+        .resource-layout {
+            display: grid;
+            grid-template-columns: var(--sidebar-width) 1fr;
+            min-height: 100vh;
+        }
+        .sidebar {
+            background: #000;
+            border-right: 1px solid var(--border);
+            padding: 40px 20px;
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            overflow-y: auto;
+        }
+        .content-area {
+            padding: 80px 60px;
+            max-width: 900px;
+        }
+        .sidebar-nav { list-style: none; }
+        .sidebar-nav li { margin-bottom: 12px; }
+        .sidebar-nav a { 
+            text-decoration: none; 
+            color: var(--mute); 
+            font-family: var(--font-mono); 
+            font-size: 0.8rem; 
+            text-transform: uppercase;
+            transition: 0.2s;
+        }
+        .sidebar-nav a:hover, .sidebar-nav a.active { color: var(--accent); }
+        
+        .act-title { font-size: 2.5rem; margin-bottom: 10px; }
+        .act-meta { font-family: var(--font-mono); font-size: 0.75rem; color: var(--mute); margin-bottom: 60px; border-bottom: 1px solid var(--border); padding-bottom: 20px; }
+        
+        .section-block { margin-bottom: 80px; animation: fadeInUp 0.8s ease-out; }
+        .section-id { font-family: var(--font-mono); font-size: 0.9rem; color: var(--mute); display: block; margin-bottom: 10px; }
+        .section-header { font-size: 1.8rem; margin-bottom: 20px; }
+        .section-body { color: var(--text); line-height: 1.8; margin-bottom: 30px; }
+        
+        .service-cta {
+            background: #111;
+            border-left: 3px solid var(--accent);
+            padding: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+        .cta-text { font-family: var(--font-serif); font-size: 1rem; color: var(--accent); }
+        .cta-btn { 
+            background: var(--accent); 
+            color: var(--bg); 
+            border: none; 
+            padding: 8px 16px; 
+            font-family: var(--font-mono); 
+            font-size: 0.7rem; 
+            text-transform: uppercase;
+            cursor: pointer;
+        }
+
+        .search-bar {
+            background: #111;
+            border: 1px solid var(--border);
+            padding: 10px;
+            width: 100%;
+            color: var(--text);
+            font-family: var(--font-sans);
+            margin-bottom: 40px;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 1024px) {
+            .resource-layout { grid-template-columns: 1fr; }
+            .sidebar { display: none; }
+            .content-area { padding: 40px 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="resource-layout">
+        <aside class="sidebar">
+            <a href="index.html" style="color: var(--accent); text-decoration: none; font-family: var(--font-mono); font-size: 0.7rem; margin-bottom: 40px; display: block;">← BACK TO PORTFOLIO</a>
+            <nav class="sidebar-nav">
+                <li><a href="#ch-1" class="active">Ch. I: Preliminary</a></li>
+                <li><a href="#ch-2">Ch. II: Punishments</a></li>
+                <li><a href="#ch-5">Ch. V: Women & Children</a></li>
+                <li><a href="#ch-6">Ch. VI: Offences against Body</a></li>
+                <li style="margin-top: 40px; color: var(--mute); font-size: 0.6rem; text-transform: uppercase;">Future Laws</li>
+                <li><a href="#" style="opacity: 0.3; pointer-events: none;">BNSS 2023 (Pending)</a></li>
+                <li><a href="#" style="opacity: 0.3; pointer-events: none;">BSA 2023 (Pending)</a></li>
+            </nav>
+        </aside>
+
+        <main class="content-area">
+            <input type="text" id="search-input" class="search-bar" placeholder="Search sections, offences, or punishments...">
+            
+            <header>
+                <h1 class="act-title">Bharatiya Nyaya Sanhita, 2023</h1>
+                <p class="act-meta">NO. 45 OF 2023 // EFFECTIVE JULY 01, 2024 // RESOURCE CENTER</p>
+            </header>
+
+            <div id="encyclopedia-root">
+                <p style="font-family: var(--font-mono); color: var(--mute);">Loading data layer...</p>
+            </div>
+
+            <script>
+                async function loadEncyclopedia() {
+                    const response = await fetch('data/bns-2023.json');
+                    const data = await response.json();
+                    const root = document.getElementById('encyclopedia-root');
+                    const sidebarNav = document.querySelector('.sidebar-nav');
+                    
+                    root.innerHTML = '';
+                    sidebarNav.innerHTML = `<a href="index.html" style="color: var(--accent); text-decoration: none; font-family: var(--font-mono); font-size: 0.7rem; margin-bottom: 40px; display: block;">← BACK TO PORTFOLIO</a>`;
+
+                    data.chapters.forEach(chapter => {
+                        // Sidebar
+                        const navItem = document.createElement('li');
+                        navItem.innerHTML = `<a href="#ch-${chapter.id}">Ch. ${chapter.id}: ${chapter.title}</a>`;
+                        sidebarNav.appendChild(navItem);
+
+                        // Content
+                        const chapterHeader = document.createElement('h2');
+                        chapterHeader.id = `ch-${chapter.id}`;
+                        chapterHeader.className = 'section-block';
+                        chapterHeader.style.borderTop = '1px solid var(--border)';
+                        chapterHeader.style.paddingTop = '40px';
+                        chapterHeader.style.marginTop = '60px';
+                        chapterHeader.style.fontSize = '1rem';
+                        chapterHeader.style.fontFamily = 'var(--font-mono)';
+                        chapterHeader.style.color = 'var(--mute)';
+                        chapterHeader.textContent = `CHAPTER ${chapter.id}: ${chapter.title}`;
+                        root.appendChild(chapterHeader);
+
+                        chapter.sections.forEach(section => {
+                            const sectionBlock = document.createElement('div');
+                            sectionBlock.className = 'section-block';
+                            sectionBlock.id = `section-${section.id}`;
+                            sectionBlock.innerHTML = `
+                                <span class="section-id">Section ${section.id}</span>
+                                <h3 class="section-header">${section.title}</h3>
+                                <div class="section-body">${section.content}</div>
+                                <div style="display: flex; gap: 10px; margin-top: 20px;">
+                                    ${section.service_mapping ? `
+                                    <div class="service-cta" style="flex: 1;">
+                                        <span class="cta-text">${section.service_mapping} support needed?</span>
+                                        <button class="cta-btn" onclick="location.href='index.html#contact'">Consult Expert</button>
+                                    </div>
+                                    ` : ''}
+                                    <button class="cta-btn" style="background: #0077B5; color: #fff; align-self: flex-start; padding: 12px 20px;" 
+                                        onclick="const b = LinkedInIntegration.generateBrief(${section.id}, ${JSON.stringify(data)}); LinkedInIntegration.copyToClipboard(b)">
+                                        Copy LinkedIn Brief
+                                    </button>
+                                </div>
+                            `;
+                            root.appendChild(sectionBlock);
+                        });
+                    });
+
+                    // Add Future Laws back
+                    const futureHeader = document.createElement('li');
+                    futureHeader.style.marginTop = '40px';
+                    futureHeader.style.color = 'var(--mute)';
+                    futureHeader.style.fontSize = '0.6rem';
+                    futureHeader.style.textTransform = 'uppercase';
+                    futureHeader.textContent = 'Future Laws';
+                    sidebarNav.appendChild(futureHeader);
+                    
+                    const bnssItem = document.createElement('li');
+                    bnssItem.innerHTML = `<a href="#" style="opacity: 0.3; pointer-events: none;">BNSS 2023 (Pending)</a>`;
+                    sidebarNav.appendChild(bnssItem);
+                }
+
+                document.addEventListener('DOMContentLoaded', loadEncyclopedia);
+
+                // Simple Search
+                document.getElementById('search-input').addEventListener('input', (e) => {
+                    const term = e.target.value.toLowerCase();
+                    document.querySelectorAll('.section-block').forEach(block => {
+                        const text = block.textContent.toLowerCase();
+                        block.style.display = text.includes(term) ? 'block' : 'none';
+                    });
+                });
+            </script>
+
+            <footer>
+                <p style="font-family: var(--font-mono); font-size: 0.7rem; margin-top: 100px; border-top: 1px solid var(--border); padding-top: 20px;">
+                    © 2024 Udbhav Mehta. Information processed for professional reference only. Subject to legal disclaimer.
+                </p>
+            </footer>
+        </main>
+    </div>
+
+    <script src="scripts/linkedin.js"></script>
+    <script src="scripts/main.js"></script>
+</body>
+</html>
