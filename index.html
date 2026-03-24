@@ -1,0 +1,730 @@
+﻿<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>U. Mehta | Legal Infrastructure & Advisory</title>
+  <meta name="description"
+    content="Final Year LL.B Student at Faculty of Law, DU. International Legal Analyst. Strategy across Contracts, Corporate, Commercial, and Criminal law.">
+  <link rel="canonical" href="https://udbhavmehta.com/">
+  <meta property="og:title" content="U. Mehta | Legal Infrastructure & Advisory">
+  <meta property="og:description"
+    content="Tier-1 legal architecture spanning Corporate M&A, Appellate Strategy, AI Governance, and Digital Infrastructure. New Delhi. Global retainerships open.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://udbhavmehta.com/">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <script>
+    // Prevent theme flicker
+    (function () {
+      const t = localStorage.getItem('um_theme') || 'dark';
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+
+  <link rel="stylesheet" href="styles/main.css">
+  <style>
+    .linkedin-embed-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .linkedin-embed {
+      background: var(--surface-2);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 20px;
+      color: var(--text-color);
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 480px;
+    }
+
+    .linkedin-embed iframe {
+      width: 100%;
+      height: 100%;
+      min-height: 440px;
+      border: none;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+     DISCLAIMER OVERLAY
+     Mandatory gate. Cannot be bypassed.
+     â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <div id="disclaimer-overlay" role="dialog" aria-modal="true" aria-labelledby="disclaimer-title">
+    <div class="disclaimer-modal">
+      <div class="disclaimer-firm">Udbhav Mehta &mdash; Legal Platform</div>
+
+      <h2 id="disclaimer-title">Legal Notice &amp; Disclaimer</h2>
+
+      <div class="disclaimer-text">
+        <p>
+          <strong>This website does not constitute legal advice.</strong> The information published herein is provided
+          for general informational and educational purposes only. It should not be construed as professional legal
+          advice, nor does it create an attorney-client, solicitor-client, or any other professional relationship
+          between you and Udbhav Mehta.
+        </p>
+        <p>
+          Udbhav Mehta is a final year LL.B. student enrolled at the Faculty of Law, University of Delhi, and is not a
+          licensed advocate pursuant to the Advocates Act, 1961. Nothing on this platform should be relied upon as a
+          substitute for advice from a qualified legal professional admitted to practise in the relevant jurisdiction.
+        </p>
+        <p>
+          Content relating to statutes, case law, and legal frameworks is provided as commentary and analysis only.
+          While reasonable care is taken to ensure accuracy, no representation, warranty, or guarantee, express or
+          implied, is made as to the completeness, accuracy, or fitness for purpose of the information. Udbhav Mehta
+          accepts no liability for any action taken or omitted in reliance upon the content of this website.
+        </p>
+        <p>
+          By accessing this website you agree that any services discussed herein are subject to a formal engagement
+          letter, conflict-of-interest screening, and applicable professional conduct rules. International users
+          acknowledge that access is governed by the laws of India, and any jurisdictional restrictions on accessing
+          legal information platforms apply to them individually.
+        </p>
+      </div>
+
+      <div class="disclaimer-compliance">
+        Displayed in compliance with Bar Council of India Rules, 1975 (Chapter II, Part VI) &mdash; Prohibition on
+        Advertising.
+        Inspired by disclaimer standards of: AZB &amp; Partners &middot; Cyril Amarchand Mangaldas &middot; Linklaters
+        LLP.
+      </div>
+
+      <div class="disclaimer-actions">
+        <button id="btn-decline" class="btn-decline">Decline &amp; Exit</button>
+        <button id="btn-accept" class="btn-accept">I Acknowledge &amp; Proceed</button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+     NAVIGATION
+     â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <nav id="site-nav" role="navigation" aria-label="Main Navigation">
+    <div class="nav-inner">
+      <div class="nav-logo">U.M. &mdash; Legal</div>
+
+      <div class="nav-links">
+        <a href="#intro">00. Preamble</a>
+        <a href="#published-work">01. Published Work &amp; Documented Thinking</a>
+        <a href="#services">02. Practice Matrix</a>
+        <a href="#sla">03. Pricing</a>
+        <a href="#contact">04. Initiate Engagement</a>
+      </div>
+
+      <div style="display:flex;align-items:center;gap:12px;">
+        <button id="theme-toggle" class="nav-theme-btn" aria-label="Toggle Light/Dark Mode">&#9711;</button>
+        <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Nav -->
+  <div class="nav-mobile" id="nav-mobile" role="dialog" aria-label="Mobile Navigation">
+    <a href="#intro">00. Preamble</a>
+    <a href="#published-work">01. Published Work &amp; Documented Thinking</a>
+    <a href="#services">02. Practice Matrix</a>
+    <a href="#sla">03. Pricing</a>
+    <a href="#contact">04. Initiate Engagement</a>
+  </div>
+
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+     Â§ 00 â€” PREAMBLE
+     â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <section id="intro">
+    <div class="intro-inner">
+
+      <div class="intro-label reveal">
+        <span class="label label--accent">New Delhi &mdash; LL.B. Candidate</span>
+      </div>
+
+      <h1 class="intro-name reveal">
+        Udbhav<br>
+        <em>Mehta.</em>
+      </h1>
+
+      <p class="intro-tagline reveal">
+        Architecting the intersection of law and social science.<br>
+        International Legal Researcher &amp; Analyst | Strategy (Contracts, Commercial, Civil, Corporate, &amp; Criminal
+        (Pro Bono))
+      </p>
+
+      <div class="intro-identity reveal" style="max-width: 800px; margin-top: 1rem;">
+        Final Year LL.B Student, Faculty of Law at Delhi University
+        <br><br>
+        Drafting, research, precedent mapping, statutory analysis, briefing, negotiation, web-development and legal
+        eco-system development for law students, associates, partners, firms and other legal entities engaged in
+        Contracts, Commercial, Civil, Corporate, &amp; Criminal (Pro Bono).
+      </div>
+
+      <div class="trust-strip stagger" style="margin-top: 60px;">
+        <div class="trust-item">3500+ Precedents Mapped</div>
+        <div class="trust-item">Multiple Practice Domains - Interdisciplinary link between Law and Social Science at
+          Display</div>
+        <div class="trust-item">Seeking Global Retainership for Research, Strategy, Analysis (Contracts, Commercial,
+          Civil, Corporate, &amp; Criminal (Pro Bono))</div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+     Â§ 01 â€” PUBLISHED WORK
+     â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <section id="published-work">
+    <div class="wrap">
+      <div class="section-header reveal">
+        <span class="label">01</span>
+        <h2>Published Work &amp; Documented Thinking</h2>
+      </div>
+
+      <p class="reveal" style="color: var(--text-2); margin-bottom: 20px; font-size: 0.9rem;">
+        A public record of legal reasoning in development. Newsletter, analysis briefs, and anonymised case studies
+        &mdash; all indexed here and linked to LinkedIn.
+      </p>
+
+      <!-- ============================================================
+           PUBLISHED WORK â€” Generated from Admin Panel
+           Last updated: 22 March 2026
+           Entries: 4 newsletter issues &middot; 5 articles &middot; 3 posts
+      ============================================================ -->
+
+      <!-- 01A: NEWSLETTER â€” Contracts & Companies -->
+      <div class="linkedin-section">
+        <div class="linkedin-section-title">Newsletter &mdash; Contracts &amp; Companies</div>
+        <div class="newsletter-header">
+          <div>
+            <div class="newsletter-title">Contracts &amp; Companies</div>
+            <div class="newsletter-sub">LinkedIn Newsletter &middot; Corporate Law &amp; AI Governance &middot; Delhi University</div>
+          </div>
+          <a href="https://www.linkedin.com/newsletters/contracts-and-companies-7431657302195126272/"
+             target="_blank" class="btn-secondary no-print">Subscribe on LinkedIn &rarr;</a>
+        </div>
+        
+                <a href="https://www.linkedin.com/posts/udbhav-mehta-548043211_ive-kept-the-ball-rolling-with-these-ugcPost-7432686358995050496-Wk5U?utm_source=share&utm_medium=member_desktop&rcm=ACoAADWTq0gBJEj5D5yxkMNzKD0hWQBE7_EkGQ0" target="_blank" class="nl-row">
+                  <span class="nl-num">004</span>
+                  <div>
+                    <div class="nl-headline">Chapter IV of the Indian Contract Act, 1872: Performance of Contracts &mdash; The Operational Core of Commercial Law</div>
+                    <div class="nl-thesis">Performance of Contracts &mdash; The Operational Core of Commercial Law. If contract formation is architecture, performance is engineering. Most transactional lawyers instinctively gravitate toward drafting representations, indemnities, and termination clauses. Yet disputes in high-value commercial arrangements &mdash; particularly in M&amp;A &mdash; rarely turn on abstract formation principles. They turn on performance. Chapter IV of the Indian Contract Act, 1872 is where the statute becomes operational.</div>
+                  </div>
+                  <span class="nl-date"></span>
+                </a>
+                <a href="https://www.linkedin.com/posts/udbhav-mehta-548043211_check-this-out-ugcPost-7432094721096790016-p60a?utm_source=share&utm_medium=member_desktop&rcm=ACoAADWTq0gBJEj5D5yxkMNzKD0hWQBE7_EkGQ0" target="_blank" class="nl-row">
+                  <span class="nl-num">003</span>
+                  <div>
+                    <div class="nl-headline">Chapter III - Contingent Contracts Under the Indian Contract Act: The Hidden Backbone of M&amp;A and Commercial Structuring</div>
+                    <div class="nl-thesis">(An Analysis of Chapter III &ndash; Sections 31&ndash;36, Indian Contract Act, 1872)</div>
+                  </div>
+                  <span class="nl-date">February 24, 2026</span>
+                </a>
+                <a href="https://www.linkedin.com/posts/udbhav-mehta-548043211_subscribe-ugcPost-7431697091846090752-4y2v?utm_source=share&utm_medium=member_desktop&rcm=ACoAADWTq0gBJEj5D5yxkMNzKD0hWQBE7_EkGQ0" target="_blank" class="nl-row">
+                  <span class="nl-num">002</span>
+                  <div>
+                    <div class="nl-headline">Chapter II of the Indian Contract Act, 1872: Legal Precision, Commercial Impact &amp; M&amp;A Risk Architecture</div>
+                    <div class="nl-thesis">The Indian Contract Act, 1872, Chapter II (Sections 10&ndash;30), is the core statutory architecture defining when agreements become contracts, when they remain voidable, and when they are void ab initio. This chapter underlies enforceability analysis in virtually every corporate and commercial contract &mdash; from complex M&amp;A share purchase agreements to joint venture arrangements and high-stakes supply/distribution contracts. Its relevance persists into 2026 as courts and deal teams manage contractual risk, structural validity, enforceability, and predictable exit rights across transactional lifecycles</div>
+                  </div>
+                  <span class="nl-date">February 23, 2026</span>
+                </a>
+                <a href="https://www.linkedin.com/posts/udbhav-mehta-548043211_ugcPost-7431670319469350912-krIV?utm_source=share&utm_medium=member_desktop&rcm=ACoAADWTq0gBJEj5D5yxkMNzKD0hWQBE7_EkGQ0" target="_blank" class="nl-row">
+                  <span class="nl-num">001</span>
+                  <div>
+                    <div class="nl-headline">Communication, Acceptance &amp; Revocation under the Indian Contract Act, 1872</div>
+                    <div class="nl-thesis">Chapter I of the Indian Contract Act lays down the mechanics of contract formation. While conceptually simple, Sections 3 to 9 often determine enforceability in high-value commercial disputes, particularly where timing, mode of communication, or conditionality is contested.</div>
+                  </div>
+                  <span class="nl-date">February 23, 2026</span>
+                </a>
+      </div>
+
+      <!-- 01B: ARTICLES -->
+      <div class="linkedin-section">
+        <div class="linkedin-section-title">Articles &mdash; LinkedIn</div>
+        <div class="cards-grid">
+          
+                <a href="https://www.linkedin.com/redir/redirect/?url=https%3A%2F%2Fdocs.google.com%2Fdocument%2Fd%2F11znS2H1XHREKKmEeb6kWIeTy50vYlBqFG07hd2C2e9I%2Fedit%3Fusp%3Ddrivesdk&urlhash=psYV&isSdui=true&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_publications_details%3Byr%2Bb%2F8OuT02jwZUjRUGXOg%3D%3D" target="_blank" class="pub-card">
+                  <div class="pub-card-tag">Law &amp; Social Science</div>
+                  <div class="pub-card-title">Judicial Enforcement of Social Equality: Article 17 &amp; 18 Through Supreme Court Jurisprudence</div>
+                  <div class="pub-card-excerpt">Judicial Enforcement of Equality: Articles 17 &amp; 18
+
+      The Indian Constitution does not treat equality as a passive promise. Through Articles 17 and 18, it actively dismantles social hierarchies &mdash; both inherited and manufactured.</div>
+                  <div class="pub-card-footer">
+                    <span class="pub-card-date">Jan 9, 2026</span>
+                    <span class="pub-card-cta">Read on LinkedIn &rarr;</span>
+                  </div>
+                </a>
+                <a href="https://www.linkedin.com/redir/redirect/?url=https%3A%2F%2Fdocs.google.com%2Fdocument%2Fd%2F1oEMkvfJq1gsvKWhKzCL7L9rXBLSihE7T%2Fedit%3Fusp%3Ddrivesdk%26ouid%3D112542578326170018470%26rtpof%3Dtrue%26sd%3Dtrue&urlhash=sF88&isSdui=true&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_publications_details%3Byr%2Bb%2F8OuT02jwZUjRUGXOg%3D%3D" target="_blank" class="pub-card">
+                  <div class="pub-card-tag">Law &amp; Social Science</div>
+                  <div class="pub-card-title">Reasonable Classification and Its Discontents: The Evolution of Equality Jurisprudence</div>
+                  <div class="pub-card-excerpt">Article 14 | Reasonable Classification and the Constitutional Control of Power
+
+      Core Proposition
+
+      Article 14 does not prohibit differentiation.
+      It prohibits arbitrary differentiation &mdash; the exercise of State power without reason, standards, or constitutional justification.</div>
+                  <div class="pub-card-footer">
+                    <span class="pub-card-date">Jan 8, 2026</span>
+                    <span class="pub-card-cta">Read on LinkedIn &rarr;</span>
+                  </div>
+                </a>
+                <a href="https://www.linkedin.com/redir/redirect/?url=https%3A%2F%2Fdocs.google.com%2Fdocument%2Fd%2F10XPXUEOtlalKhwadhm19evCZjz4V1BagFGq2gO5qGY0%2Fedit%3Fusp%3Ddrivesdk&urlhash=pCXU&isSdui=true&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_publications_details%3Byr%2Bb%2F8OuT02jwZUjRUGXOg%3D%3D" target="_blank" class="pub-card">
+                  <div class="pub-card-tag">Law &amp; Social Science</div>
+                  <div class="pub-card-title">Judicial Control of Laws under Article 13: Eclipse, Severability, Waiver, and Constitutional Immunities</div>
+                  <div class="pub-card-excerpt">Article 13 is not a mechanical repealing provision.
+      It is the constitutional adjudicatory filter through which legislative validity is tested against the normative supremacy of Part III.</div>
+                  <div class="pub-card-footer">
+                    <span class="pub-card-date">Jan 7, 2026</span>
+                    <span class="pub-card-cta">Read on LinkedIn &rarr;</span>
+                  </div>
+                </a>
+                <a href="https://www.linkedin.com/redir/redirect/?url=https%3A%2F%2Fdocs.google.com%2Fdocument%2Fd%2F10FVCc1E5riqCJzv7_1sgxYc9saa2DRm9ty-V-gLpcVc%2Fedit%3Fusp%3Ddrivesdk&urlhash=QgsG&isSdui=true&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_publications_details%3Byr%2Bb%2F8OuT02jwZUjRUGXOg%3D%3D" target="_blank" class="pub-card">
+                  <div class="pub-card-tag">Law &amp; Social Science</div>
+                  <div class="pub-card-title">The Concept of &lsquo;State&rsquo; under Article 12 of the Indian Constitution: Instrumentality of State Tests, Judicial Evolution, and Writ Jurisdiction</div>
+                  <div class="pub-card-excerpt">Article 12 | The Jurisprudence of &ldquo;State&rdquo;
+
+      Article 12 is not concerned with nomenclature or corporate architecture. It is concerned with constitutional attribution of power.
+
+      The Supreme Court applies the instrumentality / agency of State doctrine, interrogating whether an entity is financially, functionally, and administratively dominated by the Government, coupled with deep and pervasive control.</div>
+                  <div class="pub-card-footer">
+                    <span class="pub-card-date">Jan 5, 2026</span>
+                    <span class="pub-card-cta">Read on LinkedIn &rarr;</span>
+                  </div>
+                </a>
+                <a href="https://lawfullegal01.blogspot.com/2023/09/a-retrospective-analysis-of-abortion.html?zx=13a5433f2e2d7b3e" target="_blank" class="pub-card">
+                  <div class="pub-card-tag">Law &amp; Social Science</div>
+                  <div class="pub-card-title">A Retrospective Analysis of Abortion Laws in India</div>
+                  <div class="pub-card-excerpt">With the Supreme Court of Mexico recently decriminalizing abortion, let us take a moment to ruminate about the origin and framework of prevailing abortion laws in India.</div>
+                  <div class="pub-card-footer">
+                    <span class="pub-card-date">September 17, 2023</span>
+                    <span class="pub-card-cta">Read on LinkedIn &rarr;</span>
+                  </div>
+                </a>
+        </div>
+        <div style="text-align:center;padding:1.25rem 0;">
+          <a href="https://www.linkedin.com/in/udbhav-mehta-548043211/"
+             target="_blank" class="btn-secondary">View All Articles on LinkedIn &rarr;</a>
+        </div>
+      </div>
+
+      <!-- 01C: POSTS -->
+      <div class="linkedin-section" style="border-bottom:none;">
+        <div class="linkedin-section-title">Posts &mdash; LinkedIn</div>
+        <div class="cards-grid">
+          
+                <a href="https://www.linkedin.com/posts/udbhav-mehta-548043211_kalshi-bets-on-neal-katyal-in-prediction-activity-7433112498595315712-ybXu?utm_source=share&utm_medium=member_desktop&rcm=ACoAADWTq0gBJEj5D5yxkMNzKD0hWQBE7_EkGQ0" target="_blank" class="pub-card">
+                  <div class="pub-card-tag">Commercial</div>
+                  <div class="pub-card-title">Kalshi bets on Neal Katyal in prediction market cases</div>
+                  <div class="pub-card-excerpt">Former Acting Solicitor General Neal Katyal has once again secured a pivotal victory for the fintech and derivatives sectors. Representing Kalshi, Katyal successfully navigated a complex regulatory challenge, affirming the legality of event contracts and prediction markets under the Commodity Exchange Act.</div>
+                  <div class="pub-card-footer">
+                    <span class="pub-card-date"></span>
+                    <span class="pub-card-cta">Read on LinkedIn &rarr;</span>
+                  </div>
+                </a>
+                <a href="https://www.linkedin.com/posts/udbhav-mehta-548043211_arbitrationindia-adr-commerciallaw-activity-7439059282270208000-jS6M?utm_source=share&utm_medium=member_desktop&rcm=ACoAADWTq0gBJEj5D5yxkMNzKD0hWQBE7_EkGQ0" target="_blank" class="pub-card">
+                  <div class="pub-card-tag">Civil</div>
+                  <div class="pub-card-title">Complete Arbitration Pathway under the Arbitration &amp; Conciliation Act, 1996</div>
+                  <div class="pub-card-excerpt">Pre-arbitration &rarr; Commencement &rarr; Composition &rarr; Pleadings &rarr; Hearing &rarr; Award &rarr; Post-award</div>
+                  <div class="pub-card-footer">
+                    <span class="pub-card-date">16th March, 2026</span>
+                    <span class="pub-card-cta">Read on LinkedIn &rarr;</span>
+                  </div>
+                </a>
+                <a href="https://www.linkedin.com/posts/udbhav-mehta-548043211_section-of-the-competition-act-2003-anti-competitive-ugcPost-7428745495235346432--e-W?utm_source=share&utm_medium=member_desktop&rcm=ACoAADWTq0gBJEj5D5yxkMNzKD0hWQBE7_EkGQ0" target="_blank" class="pub-card">
+                  <div class="pub-card-tag">Contracts</div>
+                  <div class="pub-card-title">Section 3 of the Competition Act, 2002</div>
+                  <div class="pub-card-excerpt">Section 3 of the Competition Act, 2002 sits at the centre of India&rsquo;s antitrust framework &mdash; shaping how businesses structure commercial relationships, how regulators assess market conduct, and how courts interpret competitive harm. Yet, despite its centrality, the provision is often approached in fragments rather than as a coherent regulatory design.</div>
+                  <div class="pub-card-footer">
+                    <span class="pub-card-date">22nd Feb,2026</span>
+                    <span class="pub-card-cta">Read on LinkedIn &rarr;</span>
+                  </div>
+                </a>
+        </div>
+        <div style="text-align:center;padding:1.25rem 0;">
+          <a href="https://www.linkedin.com/in/udbhav-mehta-548043211/"
+             target="_blank" class="btn-secondary">View All Posts on LinkedIn &rarr;</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+     Â§ 02 â€” PRACTICE MATRIX
+     â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <section id="services">
+    <div class="wrap">
+      <div class="section-header reveal">
+        <span class="label">02</span>
+        <h2>Practice Matrix</h2>
+      </div>
+
+      <div class="services-grid stagger" id="services-grid">
+        <!-- Populated by JS from data/services.json -->
+        <div class="service-card" style="grid-column: 1/-1; padding: 40px;">
+          <span class="label">Loading mandates...</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+     Â§ 03 â€” PRICING
+     â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <section id="sla">
+    <div class="wrap">
+      <div class="section-header reveal">
+        <span class="label">03</span>
+        <h2>Pricing</h2>
+      </div>
+
+      <div class="sla-grid stagger" id="sla-grid">
+        <!-- Populated by JS from data/sla.json -->
+      </div>
+
+      <div class="sla-note reveal">
+        Rates are structured for advocates, boutique firms, and startups. The goal is a first transaction that
+        demonstrates value. All engagements begin with a scoping conversation at no charge. Subject to
+        conflict-of-interest screening.
+      </div>
+    </div>
+  </section>
+
+
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+     Â§ 04 â€” CONTACT / ENGAGE
+     â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <section id="contact">
+    <div class="wrap">
+      <div class="section-header reveal">
+        <span class="label">04</span>
+        <h2>Initiate Engagement / Contact Us</h2>
+      </div>
+
+      <div class="contact-grid">
+
+        <!-- Form -->
+        <form id="contact-form" class="contact-form reveal" action="https://formspree.io/f/xoqgjzvj" method="POST"
+          aria-label="Engagement Request Form">
+          <input type="text" name="name" required placeholder="Full Name" aria-label="Full Name">
+          <input type="email" name="email" required placeholder="counsel@firm.com" aria-label="Email Address">
+              <input type="hidden" name="_subject" value="New Briefing Request &mdash; U. Mehta">
+          <select name="service" aria-label="Service Category">
+            <option value="">Choose</option>
+            <option value="contracts">Contracts</option>
+            <option value="commercial">Commercial</option>
+            <option value="civil">Civil</option>
+            <option value="corporate">Corporate</option>
+            <option value="probono">Criminal (Pro Bono)</option>
+            <option value="dpa">Digital Presence Architecture</option>
+          </select>
+          <textarea name="message" rows="4" required
+            placeholder="Briefly describe the matter and jurisdictional parameters."
+            aria-label="Matter Description"></textarea>
+          <button type="submit" id="submit-btn" class="btn btn--submit">
+            <span>Initiate Briefing</span>
+          </button>
+          <p id="form-status" role="alert" aria-live="polite"
+            style="font-family: var(--font-mono); font-size: 0.72rem; margin-top: 4px;"></p>
+        </form>
+
+        <!-- Phases + Direct Links -->
+        <div class="reveal">
+          <div class="contact-phases">
+            <div class="label" style="margin-bottom: 20px;">Engagement Protocol</div>
+
+            <div class="phase-item">
+              <div class="phase-num">01</div>
+              <div>
+                <div class="phase-label">Phase 1</div>
+                <div class="phase-desc">Contracts, Commercial, Civil, Corporate, &amp; Criminal (Pro Bono).</div>
+              </div>
+            </div>
+            <div class="phase-item">
+              <div class="phase-num">02</div>
+              <div>
+                <div class="phase-label">Phase 2</div>
+                <div class="phase-desc">Urgency - Standard.</div>
+              </div>
+            </div>
+            <div class="phase-item">
+              <div class="phase-num">03</div>
+              <div>
+                <div class="phase-label">Conflict Screening</div>
+                <div class="phase-desc">Standard conflict-of-interest and NDA execution before commencement.</div>
+              </div>
+            </div>
+            <div class="phase-item">
+              <div class="phase-num">04</div>
+              <div>
+                <div class="phase-label">Initiate Briefing</div>
+                <div class="phase-desc" style="display: flex; gap: 15px; margin-top: 8px;">
+                  <a href="https://www.linkedin.com/in/udbhav-mehta-548043211/" target="_blank"
+                    style="font-size: 1.2rem; color: var(--accent); text-decoration: none;" aria-label="LinkedIn">in</a>
+                  <a href="https://wa.me/919317937000" target="_blank" style="font-size: 1.2rem; text-decoration: none;"
+                    aria-label="WhatsApp">&#128241;</a>
+                  <a href="mailto:udbhavlegalservices@gmail.com"
+                    style="font-size: 1.2rem; color: var(--text); text-decoration: none;" aria-label="Gmail">&#9993;</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-direct">
+            <a href="mailto:udbhavlegalservices@gmail.com" class="contact-link">
+              <span class="cl-icon">&#9993;</span>
+              udbhavlegalservices@gmail.com
+            </a>
+            <a href="mailto:dupg0002161@lc1.du.ac.in" class="contact-link">
+              <span class="cl-icon">&#9993;</span>
+              dupg0002161@lc1.du.ac.in
+            </a>
+            <a href="https://wa.me/919317937000" target="_blank" rel="noopener" class="contact-link">
+              <span class="cl-icon">&#128241;</span>
+              Priority WhatsApp Routing
+            </a>
+            <a href="https://www.linkedin.com/in/udbhav-mehta-548043211/" target="_blank" rel="noopener"
+              class="contact-link">
+              <span class="cl-icon">in</span>
+              LinkedIn Profile &amp; Integrity Check
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+     UNIVERSAL CONTACT BAR
+     â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <div class="contact-bar">
+    <div class="contact-bar-inner">
+      <div class="contact-bar-links">
+        <a href="mailto:udbhavlegalservices@gmail.com" class="cb-link">
+          <span class="cb-icon">&#9993;</span> udbhavlegalservices@gmail.com
+        </a>
+        <div class="cb-divider"></div>
+        <a href="mailto:dupg0002161@lc1.du.ac.in" class="cb-link">
+          <span class="cb-icon">&#9993;</span> dupg0002161@lc1.du.ac.in
+        </a>
+        <div class="cb-divider"></div>
+        <a href="https://www.linkedin.com/in/udbhav-mehta-548043211/" target="_blank" rel="noopener" class="cb-link">
+          <span class="cb-icon">in</span> LinkedIn
+        </a>
+        <div class="cb-divider"></div>
+        <a href="https://wa.me/919317937000" target="_blank" rel="noopener" class="cb-link">
+          <span class="cb-icon">&#128241;</span> WhatsApp
+        </a>
+      </div>
+      <div class="label" style="text-align: right; line-height: 1.6;">
+        All mandates subject to conflict-of-interest screening<br>and non-disclosure protocols.
+      </div>
+    </div>
+  </div>
+
+
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+     FOOTER
+     â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-copy">
+        &copy; 2026 Udbhav Mehta. Faculty of Law, University of Delhi.<br>
+        Drafting, research, precedent mapping, and statutory analysis.
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+     SCRIPTS
+     â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <script>
+    const servicesData = {
+      "services": [
+        {
+          "id": "contracts",
+          "label": "01",
+          "title": "Contracts",
+          "summary": "Drafting, stress-testing, and structuring airtight commercial contracts, non-disclosure instruments, and regulatory documentation.",
+          "items": [
+            "Rapid drafting of complex term sheets and venture structuring.",
+            "Crafting commercial contracts and non-disclosure instruments.",
+            "Precedent mapping and legal reasoning algorithms.",
+            "Pre-litigation risk mapping for contractual breaches."
+          ]
+        },
+        {
+          "id": "commercial",
+          "label": "02",
+          "title": "Commercial",
+          "summary": "Applying strict legal logic to overt commercial expansion, ensuring high-growth vectors achieve maximised revenue output without compromising statutory bounds.",
+          "items": [
+            "Systemic due diligence and post-merger integration metrics.",
+            "Tax structuring & Competition Law frameworks.",
+            "Systematised commercial tier portfolios.",
+            "Automated deadline tracking and mandate management."
+          ]
+        },
+        {
+          "id": "civil",
+          "label": "03",
+          "title": "Civil",
+          "summary": "Unassailable doctrinal research frameworks aimed at absolute precedent distillation to establish mathematically sound litigation forecasting.",
+          "items": [
+            "High Court Writ Petitions & Appellate scaling.",
+            "Detailed research briefs mapping binding case law.",
+            "Procedural synthesis for Alternative Dispute Resolution (ADR) panels.",
+            "Drafting comprehensive affidavits and civil plaints."
+          ]
+        },
+        {
+          "id": "corporate",
+          "label": "04",
+          "title": "Corporate",
+          "summary": "Targeting the entire corporate lifecycle, addressing structural mechanics governed by the Indian Companies Act, 2013 and SEBI compliance.",
+          "items": [
+            "Shareholder agreements and capital allocation frameworks.",
+            "Cross-border reverse-triangular manoeuvres.",
+            "Statutory liability indexing for corporate malfeasance.",
+            "Corporate governance audits and risk dashboards."
+          ]
+        },
+        {
+          "id": "probono",
+          "label": "05",
+          "title": "Criminal (Pro Bono)",
+          "summary": "Upholding the supreme institutional duty of absolute legal capability: extending Tier-1 structural defence to society at large.",
+          "items": [
+            "Public Interest Litigation research and briefing.",
+            "Safeguarding intellectual and digital identity of vital social missions.",
+            "Civil rights briefing and localised compliance guides.",
+            "Pro-bono statutory analysis for early-stage NGOs."
+          ]
+        }
+      ]
+    };
+
+    const slaData = {
+      "tiers": [
+        {
+          "id": "tier0",
+          "label": "LEGAL RESEARCH",
+          "price": "&#8377;2,000",
+          "unit": "flat",
+          "turnaround": "24-48 hours",
+          "description": "Provide Research Questions & Scope for Statutory + Case Law Analysis, structured memos, research briefs and hands-on engagement.",
+          "inclusions": [
+            "Statutory & Case Law Analysis",
+            "Structured Research Memos",
+            "Precedent Mapping",
+            "Secure delivery via encrypted channel"
+          ],
+          "cta": "Initiate Research Task",
+          "upi": "upi://pay?pa=9317937000@amazonpay&pn=Udbhav%20Mehta&am=2000&cu=INR"
+        },
+        {
+          "id": "tier1",
+          "label": "PROJECT MANDATES",
+          "price": "Negotiable",
+          "unit": "based on scope",
+          "turnaround": "Variable",
+          "description": "Pricing Based on Nature of Project & Initial Negotiation.",
+          "inclusions": [
+            "Contract Drafting Assistance",
+            "Case law indexing & precedent mapping",
+            "Jurisdictional comparative analysis",
+            "Unlimited revision cycles within scope",
+            "Priority WhatsApp routing"
+          ],
+          "cta": "Discuss Scope",
+          "upi": "mailto:udbhavlegalservices@gmail.com",
+          "featured": true
+        },
+        {
+          "id": "tier2",
+          "label": "DIGITAL PRESENCE (DPA)",
+          "price": "&#8377;11,000",
+          "unit": "per scope",
+          "turnaround": "10-14 days",
+          "description": "Web infrastructure and design for law students and boutique functional firms. Credible, minimalist, Harvard-tier portfolios.",
+          "inclusions": [
+            "Bespoke, typographically driven UI",
+            "Responsive, mobile-first codebase",
+            "Custom domain configuration",
+            "SEO-optimised deployment (Vercel)",
+            "Direct escalation support"
+          ],
+          "cta": "Initiate DPA Build",
+          "upi": "upi://pay?pa=9317937000@amazonpay&pn=Udbhav%20Mehta&am=11000&cu=INR"
+        }
+      ]
+    };
+
+    /* â”€â”€ SERVICES LOADER â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+    function loadServices() {
+      const grid = document.getElementById('services-grid');
+      if (!grid) return;
+      grid.innerHTML = servicesData.services.map(s => `
+      <article class="service-card">
+        <span class="service-num">${s.label}</span>
+        <h3>${s.title}</h3>
+        <p>${s.summary}</p>
+        <ul class="service-list">
+          ${s.items.map(i => `<li>${i}</li>`).join('')}
+        </ul>
+      </article>
+    `).join('');
+      // Re-observe new elements
+      grid.querySelectorAll('.service-card').forEach((el, i) => {
+        el.style.transitionDelay = `${i * 0.08}s`;
+      });
+    }
+
+    /* â”€â”€ SLA LOADER â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+    function loadSLA() {
+      const grid = document.getElementById('sla-grid');
+      if (!grid) return;
+      grid.innerHTML = slaData.tiers.map(t => `
+      <div class="sla-card${t.featured ? ' featured' : ''}">
+        <span class="sla-tier">${t.label}</span>
+        <div class="sla-price">${t.price}</div>
+        <div class="sla-unit">${t.unit}</div>
+        <div class="sla-turnaround">&#8987; ${t.turnaround}</div>
+        <p class="sla-desc">${t.description}</p>
+        <ul class="sla-inclusions">
+          ${t.inclusions.map(i => `<li>${i}</li>`).join('')}
+        </ul>
+        <a href="${t.upi}" class="btn" style="width:100%; justify-content:center;">
+          <span>${t.cta}</span>
+        </a>
+      </div>
+    `).join('');
+    }
+
+    loadServices();
+    loadSLA();
+  </script>
+
+  <script src="scripts/linkedin.js"></script>
+  <script src="scripts/main.js"></script>
+
+</body>
+
+</html>
