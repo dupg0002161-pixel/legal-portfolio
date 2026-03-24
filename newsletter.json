@@ -1,0 +1,35 @@
+{
+  "newsletter": {
+    "title": "Contracts & Companies",
+    "description": "A professional legal newsletter analysing contract law, corporate transactions, and commercial frameworks across Indian and global jurisdictions.",
+    "url": "https://www.linkedin.com/newsletters/contracts-and-companies-7431657302195126272/",
+    "author": "Udbhav Mehta",
+    "platform": "LinkedIn"
+  },
+  "articles": [
+    {
+      "id": 1,
+      "title": "The Anatomy of a Term Sheet: What Founders Actually Get Wrong",
+      "summary": "A structural breakdown of term sheet clauses — liquidation preferences, anti-dilution provisions, and drag-along rights — and why misreading them costs founders equity.",
+      "category": "Corporate",
+      "date": "Recent",
+      "url": "https://www.linkedin.com/newsletters/contracts-and-companies-7431657302195126272/"
+    },
+    {
+      "id": 2,
+      "title": "Force Majeure Post-COVID: How Indian Courts Are Interpreting Commercial Impossibility",
+      "summary": "An analysis of how the Indian judiciary has evolved its reading of Section 56 of the Indian Contract Act in the wake of pandemic-era contract disputes.",
+      "category": "Commercial",
+      "date": "Recent",
+      "url": "https://www.linkedin.com/newsletters/contracts-and-companies-7431657302195126272/"
+    },
+    {
+      "id": 3,
+      "title": "NDA Architecture: The Difference Between Enforceable and Decorative Confidentiality",
+      "summary": "Why most NDAs are structurally hollow — examining consideration, scope of confidential information, and enforcement remedies under Indian and common law.",
+      "category": "Contracts",
+      "date": "Recent",
+      "url": "https://www.linkedin.com/newsletters/contracts-and-companies-7431657302195126272/"
+    }
+  ]
+}

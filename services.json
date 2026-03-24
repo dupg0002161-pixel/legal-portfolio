@@ -1,0 +1,64 @@
+{
+  "services": [
+    {
+      "id": "contracts",
+      "label": "01",
+      "title": "Contracts",
+      "summary": "Drafting, stress-testing, and structuring airtight commercial contracts, non-disclosure instruments, and regulatory documentation.",
+      "items": [
+        "Rapid drafting of complex term sheets and venture structuring.",
+        "Crafting commercial contracts and non-disclosure instruments.",
+        "Precedent mapping and legal reasoning algorithms.",
+        "Pre-litigation risk mapping for contractual breaches."
+      ]
+    },
+    {
+      "id": "commercial",
+      "label": "02",
+      "title": "Commercial",
+      "summary": "Applying strict legal logic to overt commercial expansion, ensuring high-growth vectors achieve maximised revenue output without compromising statutory bounds.",
+      "items": [
+        "Systemic due diligence and post-merger integration metrics.",
+        "Tax structuring & Competition Law frameworks.",
+        "Systematised commercial tier portfolios.",
+        "Automated deadline tracking and mandate management."
+      ]
+    },
+    {
+      "id": "civil",
+      "label": "03",
+      "title": "Civil",
+      "summary": "Unassailable doctrinal research frameworks aimed at absolute precedent distillation to establish mathematically sound litigation forecasting.",
+      "items": [
+        "High Court Writ Petitions & Appellate scaling.",
+        "Detailed research briefs mapping binding case law.",
+        "Procedural synthesis for Alternative Dispute Resolution (ADR) panels.",
+        "Drafting comprehensive affidavits and civil plaints."
+      ]
+    },
+    {
+      "id": "corporate",
+      "label": "04",
+      "title": "Corporate",
+      "summary": "Targeting the entire corporate lifecycle, addressing structural mechanics governed by the Indian Companies Act, 2013 and SEBI compliance.",
+      "items": [
+        "Shareholder agreements and capital allocation frameworks.",
+        "Cross-border reverse-triangular manoeuvres.",
+        "Statutory liability indexing for corporate malfeasance.",
+        "Corporate governance audits and risk dashboards."
+      ]
+    },
+    {
+      "id": "probono",
+      "label": "05",
+      "title": "Criminal (Pro Bono)",
+      "summary": "Upholding the supreme institutional duty of absolute legal capability: extending Tier-1 structural defence to society at large.",
+      "items": [
+        "Public Interest Litigation research and briefing.",
+        "Safeguarding intellectual and digital identity of vital social missions.",
+        "Civil rights briefing and localised compliance guides.",
+        "Pro-bono statutory analysis for early-stage NGOs."
+      ]
+    }
+  ]
+}

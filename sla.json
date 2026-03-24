@@ -1,0 +1,56 @@
+{
+  "note": "All retainerships subject to conflict-of-interest screening. Rates in INR inclusive of applicable taxes.",
+  "tiers": [
+    {
+      "id": "tier0",
+      "label": "LEGAL RESEARCH",
+      "price": "₹2,000",
+      "unit": "flat",
+      "turnaround": "24-48 hours",
+      "description": "Provide Research Questions & Scope for Statutory + Case Law Analysis, structured memos, research briefs and hands-on engagement.",
+      "inclusions": [
+        "Statutory & Case Law Analysis",
+        "Structured Research Memos",
+        "Precedent Mapping",
+        "Secure delivery via encrypted channel"
+      ],
+      "cta": "Initiate Research Task",
+      "upi": "upi://pay?pa=9317937000@amazonpay&pn=Udbhav%20Mehta&am=2000&cu=INR"
+    },
+    {
+      "id": "tier1",
+      "label": "PROJECT MANDATES",
+      "price": "Negotiable",
+      "unit": "based on scope",
+      "turnaround": "Variable",
+      "description": "Pricing Based on Nature of Project & Initial Negotiation.",
+      "inclusions": [
+        "Contract Drafting Assistance",
+        "Case law indexing & precedent mapping",
+        "Jurisdictional comparative analysis",
+        "Unlimited revision cycles within scope",
+        "Priority WhatsApp routing"
+      ],
+      "cta": "Discuss Scope",
+      "upi": "mailto:udbhavlegalservices@gmail.com",
+      "featured": true
+    },
+    {
+      "id": "tier2",
+      "label": "DIGITAL PRESENCE (DPA)",
+      "price": "₹11,000",
+      "unit": "per scope",
+      "turnaround": "10-14 days",
+      "description": "Web infrastructure and design for law students and boutique functional firms. Credible, minimalist, Harvard-tier portfolios.",
+      "inclusions": [
+        "Bespoke, typographically driven UI",
+        "Responsive, mobile-first codebase",
+        "Custom domain configuration",
+        "SEO-optimised deployment (Vercel)",
+        "Direct escalation support"
+      ],
+      "cta": "Initiate DPA Build",
+      "upi": "upi://pay?pa=9317937000@amazonpay&pn=Udbhav%20Mehta&am=11000&cu=INR"
+    }
+  ]
+}
